@@ -267,10 +267,26 @@ bind = $mainMod SHIFT, down, movewindow, d
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
 bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
 
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
 bind = $mainMod SHIFT, 1, movetoworkspace, 1
 bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
 # Example special workspace (scratchpad)
 #bind = $mainMod, S, togglespecialworkspace, magic
@@ -313,8 +329,8 @@ bind = Ctrl, Escape, exec, killall waybar || waybar # toggle waybar
 # Screenshot 
 # add --cursor flag to include cursor also, --freeze flag to freeze before selection
 bind = , Print, exec, grimblast --notify copysave screen # Entire screen + clipboard copy
-bind = SUPER, EQUAL, exec, grimblast --notify copysave area # current Active window only + clipboard copy
-bind = SUPER ALT, EQUAL, exec, grimblast --notify copysave active# Select area to take screenshot
+bind = SUPER, Print, exec, grimblast --notify copysave active # current Active window only + clipboard copy
+bind = SUPER ALT, Print, exec, grimblast --notify copysave area # Select area to take screenshot
 
 # Volume and Media Control
 bind = , XF86AudioRaiseVolume, exec, pamixer -i 5 
@@ -380,9 +396,6 @@ windowrule = match:class ^(nm-connection-editor)$, float on
 layerrule = blur on, match:namespace waybar
 layerrule = ignore_alpha 0, match:namespace tofi
 layerrule = ignore_alpha 0, match:namespace dunst
-
-# HyprMod managed settings
-# optional: hyprland-gui.conf not included in this repo
 
 # HyprMod managed settings
 source = /home/davi/.config/hypr/hyprland-gui.conf
