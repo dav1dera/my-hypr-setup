@@ -1,0 +1,3 @@
+hyprmod-git
+kvantum-theme-catppuccin-git
+tofi
