@@ -6,11 +6,17 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 0,
+
     "modules-left": [
         "clock",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/dunst"
     ],
-    "modules-center": ["hyprland/window"],
+
+    "modules-center": [
+        "hyprland/window"
+    ],
+
     "modules-right": [
         "custom/power",
         "tray",
@@ -33,12 +39,21 @@
         "on-click": "wlogout"
     },
 
-    
+    "custom/dunst": {
+        "format": "{}",
+        "interval": 2,
+        "exec": "sh -c 'w=$(dunstctl count waiting 2>/dev/null || echo 0); p=$(dunstctl is-paused 2>/dev/null || echo false); if [ \"$p\" = \"true\" ]; then echo \"󰂛  $w\"; elif [ \"$w\" -gt 0 ]; then echo \"󰂚  $w\"; else echo \"󰂜\"; fi'",
+        "on-click": "dunstctl history-pop",
+        "on-click-right": "dunstctl close",
+        "on-click-middle": "sh -c 'dunstctl close-all; dunstctl history-clear'",
+        "tooltip": false,
+        "min-length": 4
+    },
+
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate"
-        //"format": "{icon}",
     },
 
     "tray": {
@@ -91,7 +106,8 @@
         "format": "{icon}  {volume}%",
         "tooltip": false,
         "format-muted": "  Muted",
-        "on-click": "pamixer -t",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
         "on-scroll-up": "pamixer -i 1",
         "on-scroll-down": "pamixer -d 1",
         "scroll-step": 5,
@@ -102,7 +118,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["","", "", ""]
+            "default": ["", "", "", ""]
         }
     },
 
@@ -110,7 +126,8 @@
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "  Muted",
-        "on-click": "pamixer --default-source -t",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
@@ -118,9 +135,9 @@
 
     "memory": {
         "states": {
-            "c": 90, // critical
-            "h": 60, // high
-            "m": 30 // medium
+            "c": 90,
+            "h": 60,
+            "m": 30
         },
         "interval": 10,
         "format": "󰾆 {used}GB",
