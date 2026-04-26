@@ -1,2 +1,11 @@
 *.log
 .DS_Store
+*.log
+.DS_Store
+config/hypr/*.bak
+config/waybar/*.pre-clean
+config/fish/fish_variables
+*.bak
+*.bak.*
+*.orig
+*.rej
