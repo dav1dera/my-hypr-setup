@@ -1,3 +1,4 @@
+anydesk-bin
 hyprmod-git
 kvantum-theme-catppuccin-git
 stremio
