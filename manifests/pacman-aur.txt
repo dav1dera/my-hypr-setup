@@ -1,3 +1,4 @@
 hyprmod-git
 kvantum-theme-catppuccin-git
-tofi
+stremio
+visual-studio-code-bin
